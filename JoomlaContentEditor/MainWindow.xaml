@@ -1,0 +1,60 @@
+﻿<Window x:Class="JoomlaContentEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JoomlaContentEditor"
+        xmlns:locale="clr-namespace:LoadingPanelSample.Controls;assembly=LoadingPanelSample"
+
+        mc:Ignorable="d"
+        Name="w_MainWindow"
+        Title="Edytor zmian ZS-1.edu.pl" Height="380" Width="600">
+
+    <Grid Background="#FF191934">
+
+        <Frame Name="f_PageNavigator"/>
+
+        <locale:CircularProgressBar Name="pgr_Loading"
+                                    Visibility="Collapsed"
+                                    VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Left"
+                                    Margin="10"/>
+
+        <TextBlock FontSize="22"
+                   FontFamily="pack://application:,,,/Resources/#Lato Black"
+                   Margin="40,70,40,40"
+                   Foreground="#FFF6F6FA"
+                   HorizontalAlignment="Center"
+                   TextAlignment="Center"
+                   VerticalAlignment="Top"
+                   TextWrapping="Wrap"
+                   Text = "Aby edytować zmiany do planu, musisz się połączyć z bazą danych."
+                   Name="txt_HeaderTitle" 
+                   LineHeight="30" />
+
+        <Button Width="150"
+                Height="50"
+                Margin="0,0,0,-90"
+                Name="btn_ConnectToDatabase"
+                Background="#50b499"
+                Click="btn_ConnectToDatabase_Click" BorderThickness="0">
+            
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="0" Direction="-30" ShadowDepth="4" Color="#FF444444"/>
+            </Button.Effect>
+
+            <Button.Content>
+                <Grid>
+                    <TextBlock Margin="10"
+                               Text="Połącz z bazą danych"
+                               FontFamily="pack://application:,,,/Resources/#Lato Black"
+                               Foreground="#14122F"
+                               TextWrapping="Wrap"
+                               Name="txt_ConnectToDatabase"/>
+                </Grid>
+            </Button.Content>
+
+        </Button>
+    </Grid>
+
+</Window>

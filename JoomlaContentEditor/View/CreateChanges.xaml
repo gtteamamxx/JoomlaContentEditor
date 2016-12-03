@@ -1,0 +1,52 @@
+﻿<Page x:Class="JoomlaContentEditor.View.CreateChanges"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:ex="clr-namespace:Smith.WPF.HtmlEditor;assembly=Smith.WPF.HtmlEditor"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:JoomlaContentEditor.View"
+      xmlns:locale="clr-namespace:LoadingPanelSample.Controls;assembly=LoadingPanelSample"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Zarządzanie i edycja zmianami w planie">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" 
+                    Orientation="Horizontal"
+                    Background="#FF191934" >
+
+            <locale:CircularProgressBar IsEnabled="True"
+                                    Name="pgr_Loading"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Margin="10"/>
+            
+            <TextBlock Name="txt_Loading"
+                       Text="Trwa aktualizacja.."
+                       FontFamily="pack://application:,,,/Resources/#Lato Black"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       Margin="10"/>
+        </StackPanel>
+
+        <ex:HtmlEditor Name="Editor"
+                       BorderBrush="Black"
+                       BorderThickness="0,0,0,1"/>
+        
+        <Button Name="btn_SendButton"
+                Grid.Row="1"
+                Height="65"
+                Width="150"
+                Margin="-1"
+                Background="#50b499"
+                Content="Akcpetuj zmiany i wyślij"
+                HorizontalAlignment="Right"
+                FontFamily="pack://application:,,,/Resources/#Lato Black"
+                Click="btn_SendButton_Click"/>
+    </Grid>
+</Page>
