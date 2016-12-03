@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JoomlaContentEditor"
-        xmlns:locale="clr-namespace:LoadingPanelSample.Controls;assembly=LoadingPanelSample"
+        xmlns:locale="clr-namespace:LoadingPanelSample.Controls"
 
         mc:Ignorable="d"
         Name="w_MainWindow"
@@ -14,7 +14,7 @@
 
         <Frame Name="f_PageNavigator"/>
 
-        <locale:CircularProgressBar Name="pgr_Loading"
+        <locale:CircularProgressBar x:Name="pgr_Loading"
                                     Visibility="Collapsed"
                                     VerticalAlignment="Bottom"
                                     HorizontalAlignment="Left"
