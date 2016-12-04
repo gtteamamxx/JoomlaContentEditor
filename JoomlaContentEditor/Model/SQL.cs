@@ -37,8 +37,9 @@ namespace JoomlaContentEditor.Model
                     else
                         return false;
                 }
-                catch
+                catch (Exception ex)
                 {
+                    MessageBox.Show("Błąd podczas łączenia się z bazą danych" + Environment.NewLine + ex.Message);
                     return false;
                 }
             }
