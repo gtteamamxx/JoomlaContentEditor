@@ -18,10 +18,10 @@ namespace JoomlaContentEditor.Model
             using (var _sqlConnection = new MySqlConnection())
             {
                 MySqlConnectionStringBuilder hash = new MySqlConnectionStringBuilder();
-                hash.UserID = "test";
-                hash.Password = "test";
+                hash.UserID = "root";
+                hash.Password = "";
                 hash.Server = "localhost";
-                hash.Database = "bitnami_joomla";
+                hash.Database = "joomla";
 
                 _sqlConnection.ConnectionString = hash.ConnectionString;
 
@@ -47,7 +47,7 @@ namespace JoomlaContentEditor.Model
 
         public static async Task<string> GetPlainHTMLOfChanges()
         {
-            string query = "SELECT `introtext` FROM `jos_content` WHERE `id` = 2;";
+            string query = "SELECT `introtext` FROM `jm_content` WHERE `id` = 1;";
 
             using (var command = new MySqlCommand(query, SqlConnection))
             {
@@ -63,15 +63,16 @@ namespace JoomlaContentEditor.Model
                 }
                 catch(Exception ex)
                 {
+                    await SqlConnection.CloseAsync();
                     MessageBox.Show("Błąd podczas pobierania raw HTML" + Environment.NewLine + ex.Message);
                     return null;
                 }
             }
         }
 
-        public static async Task<bool> SendPlainHTMLOfChanges(string changes)
+        public static async Task<bool> SendPlainHTMLOfChanges(string @changes)
         {
-            string query = @"UPDATE `jos_content` SET introtext = '" + @changes + @"' WHERE `id` = 2;";
+            string @query = @"UPDATE `jm_content` SET introtext = '" + @changes + @"' WHERE `id` = 1;";
 
             using (var command = new MySqlCommand(query, SqlConnection))
             {
@@ -87,6 +88,7 @@ namespace JoomlaContentEditor.Model
                 }
                 catch(Exception ex)
                 {
+                    await SqlConnection.CloseAsync();
                     MessageBox.Show("Błąd podczas wysyłania żądania raw HTML" + Environment.NewLine + ex.Message);
                     return false;
                 }

@@ -59,7 +59,7 @@ namespace JoomlaContentEditor.View
 
             if (await Model.Network.IsInternetAvailable())
             {
-                if (await Model.SQL.SendPlainHTMLOfChanges(Editor.ContentHtml))
+                if (await Model.SQL.SendPlainHTMLOfChanges(@Editor.ContentHtml))
                 {
                     pgr_Loading.Visibility = Visibility.Collapsed;
                     txt_Loading.Text = "Pomyślnie zaaktualizowano zmiany";
